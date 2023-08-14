@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+# 配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 3513
+    url: jdbc:mysql://localhost:3306/mysqlgo
+
+# mybatis配置
+mybatis-plus:
+  configuration:
+    # 配置驼峰命名
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
