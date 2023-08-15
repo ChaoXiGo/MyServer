@@ -15,12 +15,14 @@ public class R<T> {
 
     // 编码: 1为成功,其它视为失败
     private Integer code;
-
+    // 错误信息
     private String message;
 
-    // 错误信息
     // 返回的数据
     private T data;
+
+    // token
+    private String token;
 
     // 返回动态数据
     private Map map = new HashMap();
@@ -31,10 +33,11 @@ public class R<T> {
      * @return
      * @param <T>
      */
-    public static <T> R<T> success(T object) {
+    public static <T> R<T> success(T object,String token) {
         R<T> r = new R<T>();
         r.data = object;
         r.code = 1;
+        r.token = token;
         return r;
     }
 
