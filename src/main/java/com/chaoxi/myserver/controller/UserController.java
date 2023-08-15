@@ -47,7 +47,6 @@ public class UserController {
         if (myUser == null) {
             return R.error("错误");
         }
-        System.out.println(password+"~~"+myUser.getPassword());
         return R.success(myUser);
     }
 }
