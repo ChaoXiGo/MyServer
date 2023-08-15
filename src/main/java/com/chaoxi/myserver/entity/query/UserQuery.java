@@ -1,4 +1,4 @@
-package com.chaoxi.myserver.pojo.query;
+package com.chaoxi.myserver.entity.query;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

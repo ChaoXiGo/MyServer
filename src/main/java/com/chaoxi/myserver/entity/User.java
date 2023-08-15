@@ -1,4 +1,4 @@
-package com.chaoxi.myserver.pojo;
+package com.chaoxi.myserver.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

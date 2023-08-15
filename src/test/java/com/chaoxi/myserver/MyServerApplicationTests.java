@@ -1,7 +1,7 @@
 package com.chaoxi.myserver;
 
 import com.chaoxi.myserver.mapper.UserMapper;
-import com.chaoxi.myserver.pojo.User;
+import com.chaoxi.myserver.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
