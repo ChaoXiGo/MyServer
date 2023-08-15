@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j // 自定义打印日志信息
 @SpringBootApplication
+// @MapperScan("com.chaoxi.myserver.mapper")
 public class MyServerApplication {
 
 	public static void main(String[] args) {
