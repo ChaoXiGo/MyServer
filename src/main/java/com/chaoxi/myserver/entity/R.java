@@ -21,8 +21,6 @@ public class R<T> {
     // 返回的数据
     private T data;
 
-    // token
-    private String token;
 
     // 返回动态数据
     private Map map = new HashMap();
@@ -33,11 +31,10 @@ public class R<T> {
      * @return
      * @param <T>
      */
-    public static <T> R<T> success(T object,String token) {
+    public static <T> R<T> success(T object) {
         R<T> r = new R<T>();
         r.data = object;
         r.code = 1;
-        r.token = token;
         return r;
     }
 

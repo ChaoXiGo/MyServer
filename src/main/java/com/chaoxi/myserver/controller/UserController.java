@@ -1,7 +1,7 @@
 package com.chaoxi.myserver.controller;
 
 import com.chaoxi.myserver.entity.R;
-import com.chaoxi.myserver.entity.User;
+import com.chaoxi.myserver.entity.UserEntity;
 import com.chaoxi.myserver.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +15,9 @@ public class UserController {
     UserServiceImpl userService;
 
     @GetMapping("/test")
-    public R<User> test() {
-        User s = userService.getById(1);
-        return R.success(s, "123");
+    public R<UserEntity> test() {
+        UserEntity s = userService.getById(1);
+        return R.success(s);
     }
 
     /*@PostMapping("/login")
@@ -32,9 +32,4 @@ public class UserController {
         System.out.println(user.getToken()); *//*
         return userService.getById(1);
     } */
-
-    @PostMapping("/login")
-    R<User> login(@RequestBody User user) {
-        return userService.checkLogin(user);
-    }
 }
