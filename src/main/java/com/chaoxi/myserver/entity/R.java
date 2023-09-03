@@ -2,9 +2,6 @@ package com.chaoxi.myserver.entity;
 
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 返回结果通用R类
  * 服务端返回的数据都会封装成这个对象
@@ -17,13 +14,11 @@ public class R<T> {
     private Integer code;
     // 错误信息
     private String message;
-
     // 返回的数据
     private T data;
 
-
     // 返回动态数据
-    private Map map = new HashMap();
+    // private Map map = new HashMap();
 
     /**
      * 返回值对象的成功方法, code = 1为成功
@@ -37,7 +32,17 @@ public class R<T> {
         r.code = 1;
         return r;
     }
+    public static <T> R<T> success(String message) {
+        R<T> r = new R<T>();
+        r.message = message;
+        r.code = 1;
+        return r;
+    }
 
+
+    public static R success(){
+        return  new R<>();
+    }
     /**
      * 返回值对象的错误方法, code = 0 为失败
      * @param object
@@ -51,8 +56,8 @@ public class R<T> {
         return r;
     }
 
-    public R<T> add(String key, Object value){
+    /* public R<T> add(String key, Object value){
         this.map.put(key,value);
         return this;
-    }
+    } */
 }

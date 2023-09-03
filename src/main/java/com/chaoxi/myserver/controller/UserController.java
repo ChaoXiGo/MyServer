@@ -2,7 +2,7 @@ package com.chaoxi.myserver.controller;
 
 import com.chaoxi.myserver.entity.R;
 import com.chaoxi.myserver.entity.UserEntity;
-import com.chaoxi.myserver.service.UserServiceImpl;
+import com.chaoxi.myserver.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

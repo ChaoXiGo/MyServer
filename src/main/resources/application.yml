@@ -1,10 +1,10 @@
 server:
-#  ssl:
-#    enabled: true # 开启 SSL
-#    key-password: changeit # mkcert 创建证书时使用的默认密码
-#    key-store: classpath:127.0.0.1+1.p12 # 这地方写你自己的证书名称
-#    key-store-password: changeit # mkcert 创建证书时使用的默认密码
-#    key-store-type: PKCS12
+  #  ssl:
+  #    enabled: true # 开启 SSL
+  #    key-password: changeit # mkcert 创建证书时使用的默认密码
+  #    key-store: classpath:127.0.0.1+1.p12 # 这地方写你自己的证书名称
+  #    key-store-password: changeit # mkcert 创建证书时使用的默认密码
+  #    key-store-type: PKCS12
   port: 8080 # https 默认端口是 443
 
 # 配置数据源
@@ -16,6 +16,7 @@ spring:
     password: 123456
     url: jdbc:mysql://localhost:3306/mapp
 
+
 # mybatis配置
 mybatis-plus:
   configuration:
@@ -24,4 +25,6 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-       id-type: ASSIGN_ID
+      id-type: ASSIGN_ID
+
+
