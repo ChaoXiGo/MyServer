@@ -18,6 +18,6 @@ public class NewsController {
 
     @RequestMapping("list")
     R getNewsList(@RequestParam Map<String,Object> map){
-        return R.success(newsService.getPageApp(map));
+        return R.success(newsService.getPageList(map));
     }
 }

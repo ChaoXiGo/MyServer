@@ -1,4 +1,4 @@
-package com.chaoxi.myserver;
+package com.chaoxi.myserver.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;

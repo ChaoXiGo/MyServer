@@ -14,5 +14,4 @@ public class MyServerApplication {
 		SpringApplication.run(MyServerApplication.class, args);
 		log.info("自定义打印日志信息");
 	}
-
 }

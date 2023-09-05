@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @TableName("news")
 @Data
+@ToString
 public class NewsEntity implements Serializable {
     private static final long serialVersionUID = 1;
     @TableId
@@ -25,9 +27,8 @@ public class NewsEntity implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date releaseDate;
     private Integer type;
-    @TableField(exist = false)
-    private List<NewsThumbEntity> thumbEntities;
-    @TableField(exist = false)
-    private List<String> imgList;
 
+    // 声明这个字段不是数据库表字段
+    @TableField(exist = false)
+    private List<NewsThumbEntity> newsThumbList;
 }
