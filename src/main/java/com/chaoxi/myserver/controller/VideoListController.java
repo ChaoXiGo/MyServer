@@ -30,15 +30,4 @@ public class VideoListController {
         return R.success(videoList);
     }
 
-    @PostMapping("/updateCount")
-    R updateCount(@RequestBody Map<String, Object> map) {
-        Integer type = (Integer) map.get("type");
-        Integer vid = (Integer) map.get("vid");
-        Boolean flag = (Boolean) map.get("flag");
-
-        System.out.println("type= " + type);
-        System.out.println("vid= " + vid);
-        System.out.println(flag);
-        return R.success();
-    }
 }

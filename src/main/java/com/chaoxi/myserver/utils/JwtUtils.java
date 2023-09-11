@@ -25,7 +25,7 @@ public class JwtUtils {
     private String header;
 
     // 设置过期时间（毫秒为单位）
-    public static final long EXPIRE_DATE = 1 * 20 * 1000;
+    public static final long EXPIRE_DATE = 10 * 60 * 1000;
     // token秘钥（可以自定义一个随机字符串就行，避免中文）
     private static final String TOKEN_SECRET = "a1g2y47dg3dj59fjhhsd7cnewy73ja1g2y47dg3dj59fjhhsd7cnewy73j";
 

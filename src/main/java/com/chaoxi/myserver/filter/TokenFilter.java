@@ -16,7 +16,7 @@ import static com.chaoxi.myserver.utils.JwtUtils.TOKEN_INVALID;
  * 使用之前在Config文件添加 @ServletComponentScan
  * 过滤器，如果是登录或者注册请求不需要检查token，其它情况判断token， 失效转发到登录界面， 有效生成新的token返回
  */
-@WebFilter("/*")
+// @WebFilter("/*")
 public class TokenFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
