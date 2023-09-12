@@ -1,9 +1,9 @@
 package com.chaoxi.myserver.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chaoxi.myserver.entity.UpdateCountEntity;
+import com.chaoxi.myserver.entity.CollectCountEntity;
+import com.github.yulichang.base.MPJBaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface UpdateCountMapper extends BaseMapper<UpdateCountEntity> {
+public interface UpdateCountMapper extends MPJBaseMapper<CollectCountEntity> {
 }

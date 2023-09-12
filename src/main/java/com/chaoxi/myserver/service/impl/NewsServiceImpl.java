@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.chaoxi.myserver.entity.NewsDTO;
 import com.chaoxi.myserver.entity.NewsEntity;
 import com.chaoxi.myserver.entity.NewsThumbEntity;
+import com.chaoxi.myserver.mapper.NewsDTOMapper;
 import com.chaoxi.myserver.mapper.NewsMapper;
 import com.chaoxi.myserver.mapper.NewsThumbMapper;
 import com.chaoxi.myserver.service.NewsService;
@@ -22,14 +24,49 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, NewsEntity> impleme
     NewsMapper newsMapper;
 
     @Autowired
+    NewsDTOMapper newsDTOMapper;
+
+    @Autowired
     NewsThumbMapper newsThumbMapper;
-    public List<NewsEntity> getPageApp(Map<String,Object> params){
+    public List<NewsDTO> getNewsList(Map<String, Object> params) {
+        int page = Integer.parseInt((String) params.get("page"));
+        int limit = Integer.parseInt((String) params.get("limit"));
 
+        // 一对多联表查询主字段缺少
+        // MPJLambdaWrapper<NewsEntity> wrapper = new MPJLambdaWrapper<>(NewsEntity.class)
+      /*   MPJLambdaWrapper<NewsEntity> wrapper = JoinWrappers.lambda(NewsEntity.class)
+                .selectAll(NewsEntity.class)
+                // 全部映射 不用考虑字段名重复问题(比如 id), 会对重复列自动添加别名
+                .selectCollection(NewsThumbEntity.class, NewsDTO::getNewsThumbList
+                         , map -> map
+                        .result(NewsThumbEntity::getThumbId)
+                        .result(NewsThumbEntity::getThumbUrl)
+                        .result(NewsThumbEntity::getNewsId)
+                )
+                .leftJoin(NewsThumbEntity.class, NewsThumbEntity::getNewsId, NewsEntity::getNewsId);
 
-        return  baseMapper.selectList(new QueryWrapper<>());
+        // List<NewsDTO> newsDTO = newsMapper.selectJoinList(NewsDTO.class, wrapper);
+        Page<NewsDTO> newsDTO = newsMapper.selectJoinPage(new Page<>(page, limit), NewsDTO.class, wrapper);
+ */
+
+        // 分页查出limit数据，然后依次添加到NewsEntity中
+        QueryWrapper<NewsDTO> queryWrapper = Wrappers.query();
+        queryWrapper.select("news.*");
+        Page<NewsDTO> newsEntityPage = newsDTOMapper.selectPage((new Page<>(page,limit)), queryWrapper);
+        List<NewsDTO> list = newsEntityPage.getRecords();
+
+        for (NewsDTO news : list) {
+            QueryWrapper<NewsThumbEntity> thumbQueryWrapper = Wrappers.query();
+            thumbQueryWrapper.eq("news_id", news.getNewsId());
+            List<NewsThumbEntity> thumbList = newsThumbMapper.selectList(thumbQueryWrapper);
+            news.setNewsThumbList(thumbList);
+        }
+
+        return list;
     }
 
-    public List<NewsEntity> getPageList(Map<String,Object> params){
+
+    public List<NewsEntity> getPageList(Map<String, Object> params) {
         // Integer page = (Integer) params.get("page");
         int page = Integer.parseInt((String) params.get("page"));
         int limit = Integer.parseInt((String) params.get("limit"));
@@ -55,8 +92,7 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, NewsEntity> impleme
         System.out.println(records.toString()); */
 
 
-
-      //  联表查询，副表映射到主表list中
+        //  联表查询，副表映射到主表list中
         /* QueryWrapper<NewsEntity> queryWrapper = Wrappers.query();
         queryWrapper.select("news.*");
         Page<NewsEntity> newsEntityPage = newsMapper.selectPage(pg, queryWrapper);
@@ -70,7 +106,7 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, NewsEntity> impleme
         } */
 
         // 分页查出limit数据，然后依次添加到NewsEntity中
-        QueryWrapper<NewsEntity> queryWrapper = Wrappers.query();
+       /*  QueryWrapper<NewsEntity> queryWrapper = Wrappers.query();
         queryWrapper.select("news.*");
         Page<NewsEntity> newsEntityPage = newsMapper.selectPage(pg, queryWrapper);
         List<NewsEntity> list = newsEntityPage.getRecords();
@@ -80,8 +116,8 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, NewsEntity> impleme
             thumbQueryWrapper.eq("news_id", news.getNewsId());
             List<NewsThumbEntity> thumbList = newsThumbMapper.selectList(thumbQueryWrapper);
             news.setNewsThumbList(thumbList);
-        }
+        } */
 
-        return list;
+        return null;
     }
 }

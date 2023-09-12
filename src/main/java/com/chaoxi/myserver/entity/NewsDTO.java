@@ -1,7 +1,7 @@
 package com.chaoxi.myserver.entity;
 
+
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -12,12 +12,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@TableName("news")
 @Data
+@TableName("news")
 @ToString
-public class NewsEntity implements Serializable {
+public class NewsDTO implements Serializable {
     private static final long serialVersionUID = 1;
-    @TableId
     private Integer newsId;
     private String newsTitle;
     private String authorName;
@@ -28,4 +27,5 @@ public class NewsEntity implements Serializable {
     private Date releaseDate;
     private Integer type;
 
+    private List<NewsThumbEntity> newsThumbList;
 }

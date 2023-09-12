@@ -1,10 +1,9 @@
 package com.chaoxi.myserver.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.chaoxi.myserver.entity.UpdateCountEntity;
+import com.chaoxi.myserver.entity.CollectCountEntity;
 import com.chaoxi.myserver.entity.VideoListEntity;
 import com.chaoxi.myserver.mapper.UpdateCountMapper;
 import com.chaoxi.myserver.service.UpdateService;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class UpdateServiceImpl extends ServiceImpl<UpdateCountMapper, UpdateCountEntity> implements UpdateService {
+public class UpdateServiceImpl extends ServiceImpl<UpdateCountMapper, CollectCountEntity> implements UpdateService {
 
     @Autowired
     VideoListServiceImpl videoListService;
@@ -25,8 +24,8 @@ public class UpdateServiceImpl extends ServiceImpl<UpdateCountMapper, UpdateCoun
         boolean flag = Boolean.parseBoolean((String) params.get("flag"));
         System.out.printf("vid%d, type%d, flag%b%n", vid,type,flag);
 
-        LambdaUpdateWrapper<UpdateCountEntity> updateWrapper = Wrappers.lambdaUpdate(UpdateCountEntity.class)
-                .eq(UpdateCountEntity::getVid, vid);
+        LambdaUpdateWrapper<CollectCountEntity> updateWrapper = Wrappers.lambdaUpdate(CollectCountEntity.class)
+                .eq(CollectCountEntity::getVid, vid);
         LambdaUpdateWrapper<VideoListEntity> videoWrapper = Wrappers.lambdaUpdate(VideoListEntity.class)
                 .eq(VideoListEntity::getVid, vid);
 
