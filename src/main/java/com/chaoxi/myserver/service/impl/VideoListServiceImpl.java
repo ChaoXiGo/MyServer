@@ -55,4 +55,5 @@ public class VideoListServiceImpl extends ServiceImpl<VideoListMapper, VideoList
         } */
         return  videoListMapper.selectJoinPage(new Page<>(page, limit), VideoListDTO.class, wrapper);
     }
+
 }
