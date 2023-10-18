@@ -1,5 +1,6 @@
 package com.chaoxi.myserver.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @TableName("t_collect_count")
 public class CollectCountEntity implements Serializable {
     private static final long serialVersionUID = 1;
+    @TableId
     private int vid;
     private int collectState;
     private int likeState;

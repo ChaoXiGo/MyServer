@@ -1,5 +1,6 @@
 package com.chaoxi.myserver.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import java.util.Date;
 @ToString
 public class VideoListDTO implements Serializable {
     private static final long serialVersionUID = 1;
+    @TableId
     private Integer vid;
     private String vtitle;
     private String author;

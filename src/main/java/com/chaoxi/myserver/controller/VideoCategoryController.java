@@ -11,12 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("app/videocategory")
-public class VideoCategoryController {
+public class VideoCategoryController extends BaseController{
     @Autowired
     VideoCategoryService videoCategoryService;
 
-    @RequestMapping("/list")
+    @RequestMapping("/videocategory/list")
     R<List> list(@RequestParam Map<String ,Object> params){
         return R.success(videoCategoryService.queryPage(params));
     }

@@ -16,8 +16,8 @@ import static com.chaoxi.myserver.utils.JwtUtils.TOKEN_INVALID;
  * 使用之前在Config文件添加 @ServletComponentScan
  * 过滤器，如果是登录或者注册请求不需要检查token，其它情况判断token， 失效转发到登录界面， 有效生成新的token返回
  */
-// @WebFilter("/*")
-public class TokenFilter implements Filter {
+// @WebFilter("/app/*")
+public class MyFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -35,7 +35,6 @@ public class TokenFilter implements Filter {
             String token = request.getHeader("token");
             if (token == null) {
                 outputStream(servletResponse, "未登录，无法访问");
-                response.sendRedirect("/api/login");
                 return; // 结束过滤器，避免进一步处理
             }
             String result = JwtUtils.verifyToken(token);
@@ -51,7 +50,6 @@ public class TokenFilter implements Filter {
                 filterChain.doFilter(request, response);
             }
         }
-
     }
 
     /**

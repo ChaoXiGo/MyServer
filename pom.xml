@@ -14,8 +14,7 @@
 	<name>MyServer</name>
 	<description>MyServer</description>
 	<properties>
-		<java.version>17</java.version>
-        <kotlin.version>1.8.0</kotlin.version>
+		<java.version>1.8</java.version>
     </properties>
 	<dependencies>
 		<dependency>
@@ -101,7 +100,18 @@
 			<artifactId>mybatis-plus-join-boot-starter</artifactId>
 			<version>1.4.5</version>
 		</dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>3.1.3</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>

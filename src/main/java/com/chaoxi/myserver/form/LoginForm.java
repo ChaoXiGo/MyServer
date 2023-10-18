@@ -15,7 +15,7 @@ public class LoginForm {
     @ApiModelProperty("密码")
     private String password;
 
-    public String getMobile() {
+   /*  public String getMobile() {
         return mobile;
     }
 
@@ -51,4 +51,5 @@ public class LoginForm {
                 ", password='" + password + '\'' +
                 '}';
     }
+    */
 }
