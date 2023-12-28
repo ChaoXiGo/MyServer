@@ -1,6 +1,6 @@
 package com.chaoxi.myserver.mapper;
 
-import com.chaoxi.myserver.entity.VideoListDTO;
+import com.chaoxi.myserver.pojo.dto.VideoListDTO;
 import com.github.yulichang.base.MPJBaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

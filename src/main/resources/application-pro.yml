@@ -1,0 +1,36 @@
+server:
+  port: 8081 # https 默认端口是 443 http 端口80
+
+# 配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql://121.196.223.37:3306/myapp
+  # redis 配置
+  redis:
+    host: 121.196.223.37
+    port: 6379
+    lettuce:
+      pool:
+        #最大允许连接数
+        max-active: 100
+        #最小空闲连接数,最少准备5个可用连接在连接池候着
+        min-idle: 5
+        #最大空闲连接数,空闲连接超过10个后自动释放
+        max-idle: 10
+        #当连接池到达上限后,最多等待30秒尝试获取连接,超时报错
+        max-wait: 30000
+    timeout: 2000
+# mybatis配置
+mybatis-plus:
+  configuration:
+    # 配置驼峰命名
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID

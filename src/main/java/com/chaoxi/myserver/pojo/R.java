@@ -1,0 +1,67 @@
+package com.chaoxi.myserver.pojo;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+/**
+ * 返回结果通用R类
+ * 服务端返回的数据都会封装成这个对象
+ * @param <T>
+ */
+@Data
+public class R<T> {
+
+    // 编码: 1为成功,其它视为失败
+    @ApiModelProperty("服务返回的状态码")
+    private Integer code;
+    // 错误信息
+    @ApiModelProperty("服务返回的信息")
+    private String message;
+    // 返回的数据
+    @ApiModelProperty("服务返回的数据")
+    private T data;
+
+    // 返回动态数据
+    // private Map map = new HashMap();
+
+    /**
+     * 返回值对象的成功方法, code = 1为成功
+     * @param object 返回值
+     * @return
+     * @param <T>
+     */
+    public static <T> R<T> success(T object) {
+        R<T> r = new R<T>();
+        r.data = object;
+        r.code = 1;
+        return r;
+    }
+    public static <T> R<T> success(String message) {
+        R<T> r = new R<T>();
+        r.message = message;
+        r.code = 1;
+        return r;
+    }
+
+
+    public static R success(){
+        return  new R<>();
+    }
+    /**
+     * 返回值对象的错误方法, code = 0 为失败
+     * @param object
+     * @return
+     * @param <T>
+     */
+    public static <T> R<T> error(String object){
+        R<T> r = new R<>();
+        r.message = object;
+        r.code = 0;
+        return r;
+    }
+
+    /* public R<T> add(String key, Object value){
+        this.map.put(key,value);
+        return this;
+    } */
+}

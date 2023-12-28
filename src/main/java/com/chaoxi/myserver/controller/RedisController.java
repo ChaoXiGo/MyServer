@@ -1,8 +1,8 @@
 package com.chaoxi.myserver.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.chaoxi.myserver.entity.R;
-import com.chaoxi.myserver.entity.UserEntity;
+import com.chaoxi.myserver.pojo.R;
+import com.chaoxi.myserver.pojo.entity.UserEntity;
 import com.chaoxi.myserver.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

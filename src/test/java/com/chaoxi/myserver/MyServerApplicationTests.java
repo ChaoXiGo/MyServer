@@ -27,6 +27,7 @@ class MyServerApplicationTests {
     @Test
     void testRedis() {
         redis.set("name","chaoxi");
-        redis.get("name");
+        Object name = redis.get("name");
+        System.out.println(name);
     }
 }

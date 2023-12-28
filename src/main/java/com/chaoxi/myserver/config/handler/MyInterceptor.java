@@ -1,21 +1,16 @@
 package com.chaoxi.myserver.config.handler;
 
-import com.chaoxi.myserver.entity.R;
+import com.chaoxi.myserver.pojo.R;
 import com.google.gson.Gson;
-import io.swagger.annotations.Authorization;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -24,9 +19,8 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @Component
 public class MyInterceptor implements HandlerInterceptor {
-
     @Override
-    public boolean preHandle( HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) throws Exception {
 
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;

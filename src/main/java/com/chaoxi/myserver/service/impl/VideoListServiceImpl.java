@@ -2,7 +2,9 @@ package com.chaoxi.myserver.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.chaoxi.myserver.entity.*;
+import com.chaoxi.myserver.pojo.dto.VideoListDTO;
+import com.chaoxi.myserver.pojo.entity.CollectCountEntity;
+import com.chaoxi.myserver.pojo.entity.VideoListEntity;
 import com.chaoxi.myserver.mapper.UpdateCountMapper;
 import com.chaoxi.myserver.mapper.VideoListDTOMapper;
 import com.chaoxi.myserver.mapper.VideoListMapper;

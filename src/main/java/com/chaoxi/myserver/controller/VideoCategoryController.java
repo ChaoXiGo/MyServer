@@ -1,6 +1,6 @@
 package com.chaoxi.myserver.controller;
 
-import com.chaoxi.myserver.entity.R;
+import com.chaoxi.myserver.pojo.R;
 import com.chaoxi.myserver.service.VideoCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

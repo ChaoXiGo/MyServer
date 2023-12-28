@@ -1,7 +1,7 @@
 package com.chaoxi.myserver.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.chaoxi.myserver.entity.NewsEntity;
+import com.chaoxi.myserver.pojo.entity.NewsEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

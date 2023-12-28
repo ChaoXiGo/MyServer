@@ -1,8 +1,8 @@
 package com.chaoxi.myserver.controller;
 
-import com.chaoxi.myserver.entity.R;
-import com.chaoxi.myserver.form.LoginForm;
-import com.chaoxi.myserver.form.RegisterForm;
+import com.chaoxi.myserver.pojo.R;
+import com.chaoxi.myserver.pojo.entity.LoginForm;
+import com.chaoxi.myserver.pojo.entity.RegisterForm;
 import com.chaoxi.myserver.service.impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,9 +26,8 @@ public class AppLoginController {
         String password = loginForm.getPassword();
         return R.success(userService.checkInfo(mobile, password));
     }
-
-    @PostMapping("/register")
     @ApiOperation("注册")
+    @PostMapping("/register")
     public R register(@RequestBody RegisterForm registerForm) {
         if (!userService.register(registerForm)) {
             return R.error("用户名已存在");

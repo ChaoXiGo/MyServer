@@ -17,7 +17,6 @@
 > com.chaoxi.myserver.annotation.MyAnnotation
 
 ```java
-
 @Target(ElementType.METHOD) // 元注解,作用在方法
 @Retention(RetentionPolicy.RUNTIME) // 运行时使用
 @Documented // 元注解,该注解将被包含在javadoc中

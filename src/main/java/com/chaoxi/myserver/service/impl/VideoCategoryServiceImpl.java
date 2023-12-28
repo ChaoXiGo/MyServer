@@ -2,7 +2,7 @@ package com.chaoxi.myserver.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.chaoxi.myserver.entity.VideoCategoryEntity;
+import com.chaoxi.myserver.pojo.entity.VideoCategoryEntity;
 import com.chaoxi.myserver.mapper.VideoCategoryMapper;
 import com.chaoxi.myserver.service.VideoCategoryService;
 import org.springframework.stereotype.Service;

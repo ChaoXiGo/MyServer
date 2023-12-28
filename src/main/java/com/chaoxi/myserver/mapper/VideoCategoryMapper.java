@@ -1,7 +1,7 @@
 package com.chaoxi.myserver.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chaoxi.myserver.entity.VideoCategoryEntity;
+import com.chaoxi.myserver.pojo.entity.VideoCategoryEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

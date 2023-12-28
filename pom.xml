@@ -71,12 +71,6 @@
 			<version>0.11.2</version>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- Swagger API annotations -->
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-			<version>1.5.13</version>
-		</dependency>
 		<!--加密算法-->
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -111,6 +105,18 @@
 			<version>3.1.3</version>
 		</dependency>
 
+		<!-- swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<!-- swagger-ui -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
